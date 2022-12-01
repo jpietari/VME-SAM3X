@@ -123,7 +123,7 @@ void udp_server_callback(void *arg, struct udp_pcb *upcb,
   if (sHdr->access_type == FPGA_WRITE_ACCESS)
     {
       short data = htons(sHdr->data);
-      fpga_write_short(ntohl(sHdr->addr), &data);
+      fpga_write_short(ntohl(sHdr->addr), data);
     }
   if (!sHdr->status && (sHdr->access_type == FPGA_WRITE_ACCESS ||
 			sHdr->access_type == FPGA_READ_ACCESS))
